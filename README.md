@@ -16,7 +16,7 @@
 ### [ Wednesday 18-6-2025  00:00 ] :
     DID NOTHING
 
-### [ Thursday 19-6-2025  00:00 ] :
+### [ Thursday 19-6-2025  03:34 ] :
 1. Drew Basic shapes, Vector2 
 2. Collision between two rectangles (one fixed and other is moving)
 ![Screenshot (423)](https://github.com/user-attachments/assets/ea158f66-f688-40b2-a82b-1bb764617701)
