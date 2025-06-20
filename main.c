@@ -1,54 +1,54 @@
 #include "raylib.h"
 
+typedef struct Player
+{
+    Rectangle player_rect;
+    Vector2 position;
+    float speed;
+    bool can_jump;
+} Player;
+
+typedef struct Env_element
+{
+    Rectangle env_rect;
+    int blocking;
+    Color Env_element_color;
+} Env_element;
+
+#define MAX_ENV_ELEMENT 4
+
 int main()
 {
-
-    InitWindow(600, 600, "Test App");
+    InitWindow(600, 600, "Platformer Game");
     SetTargetFPS(60);
-    Rectangle main_Rect = {150, 200, 300, 200};
-    Rectangle small_Rect = {0, 0, 80, 80};
-    Rectangle temp_rect = {0, 0, 80, 80};
-    Rectangle collision_Rect = {0};
-    int collision = 0;
+
+    // Set player
+    Player player = {{270, 350, 50, 50}, (Vector2){275, 350}, 0, false};
+
+    // Set Environment
+    Env_element enviroment[MAX_ENV_ELEMENT] = {
+        {{0, 0, 600, 600}, 0, BEIGE},    // background
+        {{0, 400, 600, 200}, 1, BROWN},  // ground
+        {{100, 330, 100, 10}, 1, BROWN}, // small platform
+        {{200, 265, 300, 10}, 1, BROWN}  // wide platform
+    };
 
     while (!WindowShouldClose())
     {
         // Updating
 
-        // temp_rect is a transparent temporary rect that has the same dimensions as small_rect.
-        // we synced it with the mouse movement to detect the collision with the main_Rect.
-        temp_rect.x = GetMouseX() - temp_rect.width / 2;
-        temp_rect.y = GetMouseY() - temp_rect.height / 2; 
-
-        // we check for the collision, if there's no collision we update small_rect position
-        collision = CheckCollisionRecs(temp_rect, main_Rect);
-        if(!collision){
-         
-            small_Rect.x = GetMouseX() - small_Rect.width / 2;
-            small_Rect.y = GetMouseY() - small_Rect.height / 2;
-        }
-
-        //keep small_rect within the borders of the window
-        if (small_Rect.x + small_Rect.width >= 600)
-            small_Rect.x = 600 - small_Rect.width;
-        else if (small_Rect.x <= 0)
-            small_Rect.x = 0;
-
-        if (small_Rect.y + small_Rect.height >= 600)
-            small_Rect.y = 600 - small_Rect.height;
-        else if (small_Rect.y <= 0)
-            small_Rect.y = 0;
-
-       
-        
-        
-
         // Drawing
         BeginDrawing();
         ClearBackground(LIGHTGRAY);
-        DrawRectangleRec(main_Rect, BEIGE);
-        DrawRectangleRec(small_Rect, BROWN);
-        DrawRectangleRec(temp_rect, BLANK); // blank means transparent
+
+        for (int i = 0; i < MAX_ENV_ELEMENT; i++)
+        {
+            DrawRectangleRec(enviroment[i].env_rect, enviroment[i].Env_element_color);
+        }
+
+        // The player MUST be drawn after the environment
+        // because in environment , we draw the background as well
+        DrawRectangleRec(player.player_rect, RED);
 
         EndDrawing();
     }
