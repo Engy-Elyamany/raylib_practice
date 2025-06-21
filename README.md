@@ -6,7 +6,8 @@
 3. collision ✅
 4. Sound effects
 5. Game states (menu, playing, game over)
-6. Simple physics (gravity, jumping, speed)
+6. Simple physics (gravity, jumping, speed)✅
+7. Adding Images, background images and sprites
 
 
 ### [ Tuesday, 17-6-2025,  02:15 (hours:minutes) ] :
@@ -14,6 +15,8 @@
 2. Learned the basics of InitWindow, BeginDrawing, key Control , colors
 3. Drew a simple circle and controlled its movment through keyboard keys
 
+#### Study materials :
+- [Get Started in raylib in 20 minutes!](https://youtu.be/RGzj-PF7D74?si=WOw8h-SeAmNq3nvg)
 
 ### [ Wednesday 18-6-2025  00:00 ] :
 DID NOTHING
@@ -32,7 +35,7 @@ DID NOTHING
 - [Collision Area](https://github.com/raysan5/raylib/blob/master/examples/shapes/shapes_collision_area.c)
 
 
-### [ Friday 20-6-2025  00:00 ] :
+### [ Friday 20-6-2025  02:26 ] :
 1. Environment and player design
 ![platform design](https://github.com/user-attachments/assets/9c857da7-a6f3-4c63-9544-23aa1ee52fcc)
 2. Control player movement with keys, collision logic.
